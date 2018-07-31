@@ -28,7 +28,17 @@ package weekSixHomework;
 public class App {
 
 	public static void main(String[] args) {
+		
+		Logger logger = new AsteriskLogger();
+		Logger logger1 = new SpacedLogger();
+		
+		logger.log("Hello");
+		logger.error("Error Message");
+		logger1.log("Spaced");
+		logger1.error("Error Message Spaced");
 
 	}
+	
+	
 
 }
