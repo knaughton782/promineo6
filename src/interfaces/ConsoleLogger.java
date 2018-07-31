@@ -29,5 +29,10 @@ public class ConsoleLogger implements Logger {
 		System.err.println("FATAL!!!! " + date.toString() + ": " + fatal.toUpperCase());
 	}
 	
+	@Override
+	public void close() {
+		
+	}
+	
 
 }

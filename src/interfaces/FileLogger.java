@@ -21,7 +21,8 @@ public class FileLogger implements Logger {
 	public void info(String info) {
 		Date date = new Date();
 		try {
-			writer.write("INFO: " + date.toString() + " - " + info);
+			writer.append("INFO: " + date.toString() + " - " + info );
+			writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -31,7 +32,8 @@ public class FileLogger implements Logger {
 	public void warning(String warning) {
 		Date date = new Date();
 		try {
-			writer.write("WARNING: " + date.toString() + " - " + warning);
+			writer.append("WARNING: " + date.toString() + " - " + warning);
+			writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -41,7 +43,8 @@ public class FileLogger implements Logger {
 	public void error(String error) {
 		Date date = new Date();
 		try {
-			writer.write("ERROR: " + date.toString() + " - " + error);
+			writer.append("ERROR: " + date.toString() + " - " + error);
+			writer.newLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,7 +54,17 @@ public class FileLogger implements Logger {
 	public void fatal(String fatal) {
 		Date date = new Date();
 		try {
-			writer.write("FATAL: " + date.toString() + " - " + fatal);
+			writer.append("FATAL: " + date.toString() + " - " + fatal);
+			writer.newLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void close() {
+		try {
+			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
